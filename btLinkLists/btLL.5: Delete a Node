@@ -1,0 +1,9 @@
+public static SinglyLinkedListNode deleteNode(SinglyLinkedListNode llist, int position) {
+        if (position == 0) return llist.next;
+        else {
+            llist.next = deleteNode(llist.next, position - 1);
+        }
+        
+        return llist;
+
+}
