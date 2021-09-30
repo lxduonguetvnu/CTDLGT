@@ -1,0 +1,9 @@
+public static SinglyLinkedListNode reverse(SinglyLinkedListNode llist) {
+        if (llist == null || llist.next == null) return llist;
+        else {
+            SinglyLinkedListNode cur = reverse(llist.next); //dùng hàm đệ quy trực tiếp để đảo mọi node, trừ node đầu
+            llist.next.next = llist; //đảo node đầu cuối cùng
+            llist.next = null;
+            return cur;    
+        }
+    }
