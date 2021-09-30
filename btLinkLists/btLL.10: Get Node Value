@@ -1,0 +1,14 @@
+public static int getNode(SinglyLinkedListNode llist, int positionFromTail) {
+        int num = 0;
+        SinglyLinkedListNode cur = llist;
+        SinglyLinkedListNode pos = llist;
+        
+        while (cur != null) {
+            cur = cur.next;
+            if (num++ > positionFromTail) {
+                pos = pos.next;
+            }
+        }
+        
+        return pos.data;
+    }
