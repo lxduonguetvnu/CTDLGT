@@ -1,0 +1,30 @@
+static SinglyLinkedListNode mergeLists(SinglyLinkedListNode head1, SinglyLinkedListNode head2) {
+        if((head1 == null)&&(head2 == null)) return null; // Trường hợp 2 dslk rỗng
+        if((head1 != null)&&(head2 == null)) return head1;
+        if((head1 == null)&&(head2 != null)) return head2; // Trường hợp 1 dslk không rỗng, 1 dslk rỗng
+        
+        if(head1.data > head2.data) // Đảm bảo danh sách 1 bắt đầu bằng số nhỏ hơn
+        {
+            SinglyLinkedListNode cur = head2;
+            head2 = head1;
+            head1 = cur;
+        }
+        
+        SinglyLinkedListNode pos = head1;
+        /** Tịnh tiến qua các nút của danh sách 1 cho đến node kế. */
+        /** Đảm bảo data lớn hơn data của node hiện tại trong danh sách 2. */
+        while (head2 != null) {
+            while (head1.next != null && head2.data > head1.next.data) {
+                head1 = head1.next;
+            }
+            
+            /** Chèn node hiện tại của danh sách 2 vào danh sách 1.*/
+            SinglyLinkedListNode list2 = head2.next;
+            head2.next = head1.next;
+            head1.next = head2;
+            head2 = list2;
+        }
+        
+        return pos;
+        
+    }
