@@ -1,0 +1,26 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int q = sc.nextInt();
+        Queue<Integer> array = new LinkedList<Integer>();
+        for (int i = 0; i < q; ++ i) {
+            int type = sc.nextInt();
+            if (type == 1) {
+                int val = sc.nextInt();
+                array.add(val);
+            }
+            else if (type == 2) {
+                array.poll();
+            }
+            else {
+                int k = array.peek();
+                System.out.println(k);
+            }
+            
+        }
+    }
+}
