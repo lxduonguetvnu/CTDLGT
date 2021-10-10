@@ -1,0 +1,10 @@
+public static int introTutorial(int V, List<Integer> arr) {
+        int result = 0;
+        for (int i = 0; i < arr.size(); ++ i) {
+            if (arr.get(i) == V) {
+                result = i;
+                break;
+            }
+        }
+        return result;
+    }
