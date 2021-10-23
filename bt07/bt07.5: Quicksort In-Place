@@ -1,0 +1,55 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int [] a = new int[10000000];
+        for (int i = 0; i < n; ++ i) {
+            a[i] = sc.nextInt();
+        }
+        
+        int pivot = a[n - 1];
+        ArrayList<Integer> left = new ArrayList<>();
+        ArrayList<Integer> right = new ArrayList<>();
+        for (int i = 0; i < n - 1; ++ i) {
+            if (a[i] < pivot) left.add(a[i]);
+            else right.add(a[i]);
+        }
+        
+        ArrayList arraylistResult = new ArrayList<>();
+        for (int j = 0; j < left.size(); ++ j) {
+            arraylistResult.add(left.get(j));
+        }
+        arraylistResult.add(pivot);
+        for (int k = 0; k < right.size(); ++ k) {
+            arraylistResult.add(right.get(k));
+        }
+        
+        for (int i = 0; i < arraylistResult.size(); ++ i) {
+            System.out.print(arraylistResult.get(i) + " ");
+        }
+        System.out.println();
+        
+        for (int i = 0; i < n; ++ i) {
+            a[i] = (int)arraylistResult.get(i);
+        }
+        
+        for (int i = 0; i < n; ++ i) {
+            for (int j = i + 1; j < n; ++ j) {
+                if (a[i] > a[j]) {
+                    int temp = a[i];
+                    a[i] = a[j];
+                    a[j] = temp;
+                    for (int l = 0; l < n; ++ l) {
+                        System.out.print(a[l] + " ");    
+                    }
+                    System.out.println();
+                }
+                
+            }
+        }
+    }
+}
