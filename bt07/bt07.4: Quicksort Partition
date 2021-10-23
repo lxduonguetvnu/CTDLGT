@@ -1,0 +1,20 @@
+public static ArrayList<Integer> quickSort(ArrayList<Integer> arr) {
+        int pivot = arr.get(0);
+        ArrayList<Integer> left = new ArrayList<>();
+        ArrayList<Integer> right = new ArrayList<>();
+        for (int i = 1; i < arr.size(); ++ i) {
+            if (arr.get(i) < pivot) left.add(arr.get(i));
+            else right.add(arr.get(i));
+        }
+        
+        ArrayList<Integer> result = new ArrayList<>();
+        for (int j = 0; j < left.size(); ++ j) {
+            result.add(left.get(j));
+        }
+        result.add(pivot);
+        for (int k = 0; k < right.size(); ++ k) {
+            result.add(right.get(k));
+        }
+        
+        return result;
+    }
