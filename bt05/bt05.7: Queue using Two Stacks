@@ -6,7 +6,7 @@ public class Solution {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int q = sc.nextInt();
-        Queue<Integer> array = new LinkedList<Integer>();
+        Queue<Integer> array = new ArrayList<Integer>();
         for (int i = 0; i < q; ++ i) {
             int type = sc.nextInt();
             if (type == 1) {
